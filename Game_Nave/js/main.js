@@ -30,10 +30,9 @@ function start() {
     let soundRescue = document.getElementById("somRegaste")
     let soundShot = document.getElementById("somDisparo");
     let soundExplosion = document.getElementById("somExplosao");
-    let music = document.getElementById("musica");
-    let soundGameOver = document.getElementById("somGameover");
-    let soundLost = document.getElementById("somPerdido");
-    
+    var music = document.getElementById("musica");
+    var soundGameOver = document.getElementById("somGameover");
+    var soundLost = document.getElementById("somPerdido");    
 
     music.addEventListener("ended", function() {music.currentTime = 0; music.play(),false});
     music.play();
@@ -169,8 +168,10 @@ function start() {
         }
 
         if (collisionTwo.length > 0) {
-            energyLife--
             soundLost.play();
+            console.log(soundLost);
+            energyLife--
+            
             enemyTwoX = parseInt($("#inimigo2").css("left"));
             enemyTwoY = parseInt($("#inimigo2").css("top"));
             explosionTwo(enemyTwoX,enemyTwoY);
